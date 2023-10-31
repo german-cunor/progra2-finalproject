@@ -1,0 +1,165 @@
+@font-face {
+	font-family: "altothe";
+	src: url("fonts/aldothe_apache.ttf");
+}
+
+body {
+	text-align: center;
+	font-size: 16px;
+}
+
+.top {
+    position: relative;
+    height: 300px;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    background-image: url("images/header2.jpg");
+    background-position-y: bottom;
+    background-size: cover;
+}
+
+[title1] {
+    position: absolute;
+    margin-right: 20px;
+    margin-top: 20px;
+	color: rgb(255, 255, 255);
+	font-family: 'altothe';
+	font-size: 40px;
+    right: 0;
+}
+
+#formTitle {
+    color: white;
+    background-color: #fc5ac6;
+}
+
+
+.menuButton {
+	color: #eeeeee;
+	text-align: center;
+	background-color: #fc5ac6;
+	font-size: 20px;
+	border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgb(75, 75, 75);
+	margin: 20px;
+	padding: 4px;
+    width: 200px;
+}
+
+.menuButton:hover {
+	color: #eeeeee;
+	text-align: center;
+	background-color: #ed3cb2;
+	font-size: 21px;
+	border: none;
+    box-shadow: 2px 2px 5px rgb(75, 75, 75);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+	padding: 4px;
+    width: 220px;
+}
+
+.inputField {
+    font-size: 20px;
+    outline: none;
+    border-radius: 20px;
+    height: 40px;
+    border: 2px solid #fc5ac6;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 4px;
+}
+
+.areaField {
+    font-size: 20px;
+    outline: none;
+    border-radius: 20px;
+    height: 200px;
+    border: 2px solid #fc5ac6;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 4px;
+    resize: none;
+}
+
+.floatingButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+	background-color: #fc5ac6;
+	box-shadow: 2px 2px 5px black;
+	font-size: 20px;
+	border: none;
+}
+
+.floatingButton:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+	background-color: #ed3cb2;
+	box-shadow: 2px 2px 5px black;
+	font-size: 20px;
+	border: none;
+}
+
+.messageImage {
+    max-width: 80%;
+    max-height: 50%;
+}
+
+#LoginAdminitrator {
+    display: none;
+}
+
+#PatientRoot {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#PatientContainer {
+    overflow: hidden;
+    width: 80%;
+    height: 90%;
+
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 40px;
+    background-color: rgb(255, 255, 255);
+}
+
+#PatientForm {
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    transform: translate(-5%, 0%);
+    overflow: scroll;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+}

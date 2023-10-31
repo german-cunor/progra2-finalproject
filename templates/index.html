@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'sytlesIndex.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="top">
+        <css title1>La eterna primavera</css>
+    </div>
+    <button id="floatingButton"><img class="messageImage" src="{% static 'images/message.png' %}"/></button>
+
+    <div id="Welcome">
+        <h1>
+            Bievenido
+        </h1>
+        <p>
+            Acceder como:
+        </p>
+
+        <table>
+            <tr>
+                <button class="menuButton" id="patientButton">Paciente</button>
+            </tr>
+            <tr>
+                <button class="menuButton" id="adminButton">Administrador</button>
+            </tr>
+        </table>
+    </div>
+
+    <div id="LoginAdminitrator">
+        <h1>
+            Ingrese sus datos
+        </h1>
+        <input type="text" class="inputField" id="userid" placeholder="Id de empleado">
+        <br/>
+        <input type="text" class="inputField" id="userpassword" placeholder="Contraseña">
+        <br/>
+
+        <table>
+            <tr>
+                <button class="menuButton" id="backButton">Regresar</button>
+            </tr>
+            <tr>
+                <button class="menuButton">Entrar</button>
+            </tr>
+        </table>
+    </div>
+
+    <div class="PatientRoot" id="PatientRoot">
+        <div class="overlay" id="overlay"></div>
+
+        <div id="PatientContainer">
+            <div id="PatientForm">
+                <h1 id="formTitle">
+                    Programe una consulta
+                </h1>
+                Llene lo que se le solicita:
+                <br/>
+                <br/>
+                <form>
+                    <input type="text" class="inputField" placeholder="Nombre">
+                    <br>
+                    <input type="text" class="inputField" placeholder="DPI">
+                    <br>
+                    <input type="text" class="inputField" placeholder="Número de telefono">
+                    <br>
+                    <input type="text" class="inputField" placeholder="Dirección">
+                    <br>
+                    <textarea class="areaField" placeholder="Razón de la visita"></textarea>
+                    <br>
+                </form>
+                <table>
+                    <tr>
+                        <button class="menuButton" id="cancelPatientButton">Cancelar</button>
+                    </tr>
+                    <tr>
+                        <button class="menuButton">Programar</button>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="MessageRoot" id="MessageRoot">
+        <div class="overlay" id="overlay"></div>
+
+        <div id="MessageContainer">
+            <div id="MessageForm">
+                <h1 id="messageTitle">
+                    Contactese con nosotros
+                </h1>
+                Haganos saber sus dudas, deje un comentario o sugerencias.
+                <br>
+                Adjunte algún medio de contacto, nos comunicaremos con usted lo mas pronto posible :D
+                <br/>
+                <br/>
+                <form>
+                    <input type="text" class="inputField" placeholder="Nombre">
+                    <br>
+                    <input type="text" class="inputField" placeholder="Telefono / Correo">
+                    <br>
+                    <textarea class="areaField" placeholder="Mensaje"></textarea>
+                    <br>
+                </form>
+                <table>
+                    <tr>
+                        <button class="menuButton" id="cancelMessageButton">Cancelar</button>
+                    </tr>
+                    <tr>
+                        <button class="menuButton">Enviar</button>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'main.js' %}"></script>
+</body>
+</html>
