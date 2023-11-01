@@ -1,3 +1,6 @@
 from django.contrib import admin
+from clinic.models import User, RequestAppointment, Doctor
 
-# Register your models here.
+admin.site.register(User)
+admin.site.register(RequestAppointment)
+admin.site.register(Doctor)

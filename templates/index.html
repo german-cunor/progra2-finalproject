@@ -35,17 +35,20 @@
         <h1>
             Ingrese sus datos
         </h1>
-        <input type="text" class="inputField" id="userid" placeholder="Id de empleado">
-        <br/>
-        <input type="text" class="inputField" id="userpassword" placeholder="Contraseña">
-        <br/>
+        <form id="userForm" action="{% url 'admin' %}" method="post">
+            {% csrf_token %}
+            <input type="text" class="inputField" name="name" placeholder="Id de empleado">
+            <br>
+            <input type="password" class="inputField" name="password" placeholder="Contraseña">
+            <br> 
+        </form>
 
         <table>
             <tr>
                 <button class="menuButton" id="backButton">Regresar</button>
             </tr>
             <tr>
-                <button class="menuButton">Entrar</button>
+                <button class="menuButton" id="login">Entrar</button>
             </tr>
         </table>
     </div>
@@ -56,29 +59,25 @@
         <div id="PatientContainer">
             <div id="PatientForm">
                 <h1 id="formTitle">
-                    Programe una consulta
+                    Solicite una consulta
                 </h1>
-                Llene lo que se le solicita:
-                <br/>
-                <br/>
-                <form>
-                    <input type="text" class="inputField" placeholder="Nombre">
+                <pre id="requestMessage">Ingrese sus datos:</pre>
+                <form id="requestForm" action="{% url 'request_appointment' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="namePatient" id="namePatient" class="inputField" placeholder="Nombre">
                     <br>
-                    <input type="text" class="inputField" placeholder="DPI">
+                    <input type="text" name="dpiPatient" id="dpiPatient" class="inputField" placeholder="DPI" maxlength="13">
                     <br>
-                    <input type="text" class="inputField" placeholder="Número de telefono">
+                    <input type="text" name="noPhone" id="noPhone" class="inputField" placeholder="Número de telefono" maxlength="8">
                     <br>
-                    <input type="text" class="inputField" placeholder="Dirección">
-                    <br>
-                    <textarea class="areaField" placeholder="Razón de la visita"></textarea>
-                    <br>
+                    <textarea name="reasonPatient" id="reasonPatient" class="areaField" placeholder="Razón de la visita" maxlength="1000"></textarea>
                 </form>
                 <table>
                     <tr>
                         <button class="menuButton" id="cancelPatientButton">Cancelar</button>
                     </tr>
                     <tr>
-                        <button class="menuButton">Programar</button>
+                        <button class="menuButton" id="requestButton">Solicitar</button>
                     </tr>
                 </table>
             </div>

@@ -1,0 +1,35 @@
+<table id="doctorTable" width="100%" cellspacing="10px">
+    <tr>
+        <td class="cellTitle">Nombre</td>
+        <td class="cellTitle">Colegiado</td>
+        <td class="cellTitle">Espcealidad</td>
+        <td class="cellTitle">Otros</td>
+    </tr>
+    
+    {% for doctor in doctors %}
+        <tr>
+            <td class="cellData">
+                {{doctor.name}}
+            </td>
+
+            <td class="cellData">
+                {{doctor.membership}}
+            </td>
+
+            <td class="cellData">
+                {{doctor.specialty}}
+            </td>
+
+            <td class="cellData">
+                {{doctor.others}}
+            </td>
+
+            <td>
+                <button class="acceptButton">Editar</button>
+            </td>
+            <td>
+                <button class="deleteButton">Eliminar</button>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

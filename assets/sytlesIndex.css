@@ -50,12 +50,17 @@ body {
 }
 
 .menuButton:hover {
+	color: #eeeeee;
+	text-align: center;
 	background-color: #ed3cb2;
 	font-size: 21px;
+	border: none;
+    box-shadow: 2px 2px 5px rgb(75, 75, 75);
     margin-top: 19px;
     margin-bottom: 19px;
     margin-left: 10px;
     margin-right: 10px;
+	padding: 4px;
     width: 220px;
     transition: width 0.2s ease;
 }
@@ -175,15 +180,6 @@ body {
     opacity: 0;
 }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .8);
-}
-
 #MessageContainer {
     overflow: hidden;
     width: 80%;
@@ -205,6 +201,11 @@ body {
     overflow: scroll;
 }
 
-.submitTrigger {
-    display: none;
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
 }

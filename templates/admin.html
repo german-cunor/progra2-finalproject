@@ -4,26 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'stylesAdmin.css' %}">
+    <link rel="stylesheet" href="{% static 'styles_admin.css' %}">
     <title>Administrador</title>
 </head>
 <body>
     <div class="container">
+        <div class="leftSide">
+            <div class="menuOption" id="home">
+                Inicio
+            </div>
+            <div class="menuOption" id="request">
+                Solicitudes de consultas
+            </div>
+            <div class="menuOption" id="patient">
+                Pacientes
+            </div>
+            <div class="menuOption" id="history">
+                Historial
+            </div>
+            <div class="menuOption" id="doctor">
+                Medicos
+            </div>
+        </div>
 
-        <table class="tableContent">
-            <td>
-                <div class="leftSide">
-                    Hello
-                </div>
-            </td>
-
-            <td>
-                <div class="rightSide">
-                    Name
-                </div>
-            </td>
-        </table>
-
+        <div class="rightSide">
+            <div id="homeContainer">
+                <h1 class="adminTitle">
+                    Inicio
+                </h1>
+                <p class="paragraph">
+                    Bievenido {{user_name}}
+                </p>
+                <pre id="bar" class="paragraph">|                                                           |</pre>
+                <p class="paragraph">
+                    Lista de adminitradores:
+                </p>
+            </div>
+            <div id="requestContainer" style="overflow: scroll; width: 100%; height: 100%;"></div>
+            <div id="doctorContainer" style="overflow: scroll; width: 100%; height: 100%;"></div> 
+        </div>
     </div>
+
+
+    <div class="PatientRoot" id="PatientRoot">
+        <div class="overlay"></div>
+        <div id="PatientContainer">
+            <div id="PatientForm">
+                <h1 id="formTitle">
+                    Agregar Paciente
+                </h1>
+                <form id="addPatientForm" action="{% url 'request_appointment' %}" method="post">
+                    {% csrf_token %}
+                    <input type="date" name="datePatient" id="datePatient" class="inputField">
+                    <input type="time" name="timePatient" id="timePatient" class="inputField">
+                    <br>
+                    <div id="doctorSelect"></div>
+                    <br>
+                    <textarea name="reasonPatient" id="reasonPatient" class="areaField" placeholder="Otros" maxlength="1000"></textarea>
+                </form>
+                <table>
+                    <tr>
+                        <button class="menuButton" id="cancelPatientButton">Cancelar</button>
+                    </tr>
+                    <tr>
+                        <button class="menuButton" id="requestButton">Agregar</button>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'admin.js' %}"></script>
 </body>
 </html>

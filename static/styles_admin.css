@@ -1,39 +1,87 @@
-@font-face {
-	font-family: "altothe";
-	src: url("fonts/aldothe_apache.ttf");
-}
-
-body {
-	text-align: center;
-	font-size: 16px;
-}
-
-.top {
-    position: relative;
-    height: 300px;
-    margin-top: -10px;
-    margin-left: -10px;
-    margin-right: -10px;
-    background-image: url("images/header2.jpg");
-    background-position-y: bottom;
+.container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
     background-size: cover;
+    background-image: url("images/header2.jpg");
+    top: 0;
+    left: 0;
 }
 
-[title1] {
+.acceptButton, .deleteButton {
+	color: #eeeeee;
+	text-align: center;
+	background-color: #fc5ac6;
+	font-size: 20px;
+	border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgb(75, 75, 75);
+	padding: 4px;
+    width: 120px;
+}
+
+.acceptButton:hover, .deleteButton:hover {
+	background-color: #ed3cb2;
+}
+
+.tableContent {
+    width: 100%;
+    height: 100%;
+}
+
+.leftSide {
     position: absolute;
-    margin-right: 20px;
-    margin-top: 20px;
-	color: rgb(255, 255, 255);
-	font-family: 'altothe';
-	font-size: 40px;
+    width: 25%;
+    height: 90%;
+    transform: translate(5%,5%);
+    background-color: #00000070;
+    border-radius: 20px;
+    overflow: hidden;
+    margin:
+}
+
+.rightSide {
+    position: absolute;
+    text-align: center;
+    width: 70%;
+    height: 90%;
+    transform: translate(-2.5%, 5%);
+    border-radius: 20px;
+    background-color: #00000070;
+    overflow: hidden;
     right: 0;
 }
 
-#formTitle {
+.menuOption {
+    margin-block: 4px;
+    width: 100%;
+    height: 40px;
+    font-size: 30px;
     color: white;
-    background-color: #fc5ac6;
+    background-color: #00000060;
+    transition: background-color 0.3s ease;
 }
 
+.selected {
+    background-color: #ed3cb294;
+}
+
+.unselected {
+    background-color: #00000060;
+}
+
+.adminTitle {
+    text-align: center;
+    color: white;
+    background-color: #304050;
+    height: 45px;
+    transform: translateY(-24px);
+}
+
+.paragraph {
+    color: white;
+    font-size: 20px;
+}
 
 .menuButton {
 	color: #eeeeee;
@@ -83,56 +131,35 @@ body {
     resize: none;
 }
 
-#floatingButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-	background-color: #fc5ac6;
-	box-shadow: 2px 2px 5px black;
-	font-size: 20px;
-	border: none;
-    transition: width 0.2s ease;
+.cellData {
+    color: white;
+    background-color: #00000060;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ffffffa0;
+    width: 25%;
+    outline: none;
 }
 
-#floatingButton:hover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-	background-color: #ed3cb2;
-	box-shadow: 2px 2px 5px black;
-	font-size: 20px;
-	border: none;
-    transition: width 0.2s ease;
-}
-
-.messageImage {
-    max-width: 80%;
-    max-height: 50%;
-}
-
-#LoginAdminitrator {
-    display: none;
+.cellTitle {
+    color: white;
+    background-color: #000000a0;
+    font-size: 16px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid #ffffffa0;
+    width: 25%;
+    outline: none;
 }
 
 .PatientRoot {
+    text-align: center;
     position: fixed;
     width: 100%;
     height: 100%;
     z-index: 1;
-    display: none;
     opacity: 0;
+    display: none;
     transition: opacity 0.5s ease;
 }
 
@@ -182,29 +209,4 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, .8);
-}
-
-#MessageContainer {
-    overflow: hidden;
-    width: 80%;
-    height: 90%;
-
-    position: fixed;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 40px;
-    background-color: rgb(255, 255, 255);
-}
-
-#MessageForm {
-    position: absolute;
-    width: 110%;
-    height: 100%;
-    transform: translate(-5%, 0%);
-    overflow: scroll;
-}
-
-.submitTrigger {
-    display: none;
 }
