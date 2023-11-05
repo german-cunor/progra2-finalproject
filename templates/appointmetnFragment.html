@@ -1,0 +1,65 @@
+<table width="100%" height="100%" cellspacing="10px" style="color: white;">
+    <tr height="1%">
+        <td width="1%" style="white-space: nowrap;">Nombre del paciente:</td>
+        <td class="cellData">{{patient.name}}</td>
+        <td width="1%" style="white-space: nowrap;">Dpi:</td>
+        <td class="cellData">{{patient.dpi}}</td>
+    </tr>
+
+    <tr height="1%">
+        <td width="1%" style="white-space: nowrap;">Fecha de nacimiento:</td>
+        <td class="cellData">{{patient.birdthdate}}</td>
+        <td width="1%" style="white-space: nowrap;">Hora de la visita:</td>
+        <td class="cellData">{{appointment.time}}</td>
+    </tr>
+
+    <tr>
+        <td width="1%" style="white-space: nowrap;">Razon de la visita:</td>
+        <td colspan="3" class="cellData">{{appointment.reason}}</td>
+    </tr>
+
+    <tr height="5%"></tr>
+
+    <tr height="1%">
+        <td width="1%" style="white-space: nowrap;">Medico tratante:</td>
+        <td class="cellData">{{doctor.name}}</td>
+        <td width="1%" style="white-space: nowrap;">Colegiado:</td>
+        <td class="cellData">{{doctor.membership}}</td>
+    </tr>
+    <tr height="1%">
+        <td widh colspan="2">Diagnostico:</td>
+        <td colspan="2">Receta:</td>
+    </tr>
+    <tr height="40%">
+        <td colspan="2"><textarea id="diagnostic" style="
+            background-color: #00000060;
+            border: 1px solid #ffffffa0;
+            color: white;
+            width:100%;
+            height: 100%;
+            box-sizing: border-box;
+            font-size: 20px;
+            outline: none;
+            border-radius: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+            resize: none;">{{appointment.diagnostic}}</textarea></td>
+
+        <td colspan="2"><textarea id="prescription" style="
+            background-color: #00000060;
+            border: 1px solid #ffffffa0;
+            color: white;
+            width:100%;
+            height: 100%;
+            box-sizing: border-box;
+            font-size: 20px;
+            outline: none;
+            border-radius: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+            resize: none;">{{appointment.prescription}}</textarea></td>
+    </tr>
+    <tr height="1%">
+        <td colspan="4" style="text-align: end;"><button id="saveChanges" class="acceptButton">Guardar</button></td>
+    </tr>
+</table>

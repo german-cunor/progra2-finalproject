@@ -8,23 +8,46 @@
     <title>Administrador</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <div class="leftSide">
-            <div class="menuOption" id="home">
-                Inicio
-            </div>
-            <div class="menuOption" id="request">
-                Solicitudes de consultas
-            </div>
-            <div class="menuOption" id="patient">
-                Pacientes
-            </div>
-            <div class="menuOption" id="history">
-                Historial
-            </div>
-            <div class="menuOption" id="doctor">
-                Medicos
-            </div>
+            <table width="100%" cellspacing = 6px>
+                <tr>
+                    <td class="menuOption" id="home">Inicio</td>
+                </tr>
+                <tr>
+                    <td class="menuOption" id="request">Solicitudes de consultas</td>
+                </tr>
+                <tr>
+                    <td class="menuOption" id="patient">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    Pacientes
+                                </td>
+                                <td class="addData" id="formPatientButton">
+                                    +
+                                </td>
+                            </tr>
+                        </table></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="menuOption" id="doctor">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    Medicos
+                                </td>
+                                <td class="addData" id="formDoctorButton">
+                                    +
+                                </td>
+                            </tr>
+                        </table></td>
+                    </tr>
+                <tr>
+                    <td class="menuOption" id="message">Mensajes</td>
+                </tr>
+            </table>
         </div>
 
         <div class="rightSide">
@@ -32,16 +55,22 @@
                 <h1 class="adminTitle">
                     Inicio
                 </h1>
+                <p class="paragraph" style="font-family: altothe; font-size: 300%;">
+                    La eterna primavera
+                </p>
+                <br>
+
                 <p class="paragraph">
                     Bievenido {{user_name}}
                 </p>
-                <pre id="bar" class="paragraph">|                                                           |</pre>
-                <p class="paragraph">
-                    Lista de adminitradores:
-                </p>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <pre id="bar" class="paragraph">|                                                       |</pre>
             </div>
-            <div id="requestContainer" style="overflow: scroll; width: 100%; height: 100%;"></div>
-            <div id="doctorContainer" style="overflow: scroll; width: 100%; height: 100%;"></div> 
+            <div id="reloadContainer" style="overflow: scroll; width: 100%; height: 100%;"></div>
         </div>
     </div>
 
@@ -50,24 +79,105 @@
         <div class="overlay"></div>
         <div id="PatientContainer">
             <div id="PatientForm">
-                <h1 id="formTitle">
-                    Agregar Paciente
+                <h1>
+                    Agregar paciente
                 </h1>
-                <form id="addPatientForm" action="{% url 'request_appointment' %}" method="post">
+                <form id="addPatientForm">
                     {% csrf_token %}
-                    <input type="date" name="datePatient" id="datePatient" class="inputField">
+                    <input type="date" name="datePatient" id="datePatient" class="inputField" maxlength="50">
                     <input type="time" name="timePatient" id="timePatient" class="inputField">
                     <br>
-                    <div id="doctorSelect"></div>
+                    <div id="doctorSelect1"></div>
                     <br>
-                    <textarea name="reasonPatient" id="reasonPatient" class="areaField" placeholder="Otros" maxlength="1000"></textarea>
+                    <textarea name="otherPatient" id="otherPatient" class="areaField" placeholder="Otros" maxlength="1000"></textarea>
                 </form>
                 <table>
                     <tr>
                         <button class="menuButton" id="cancelPatientButton">Cancelar</button>
                     </tr>
                     <tr>
-                        <button class="menuButton" id="requestButton">Agregar</button>
+                        <button class="menuButton" id="acceptPatientButton">Agregar</button>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="NewPatientRoot" id="NewPatientRoot">
+        <div class="overlay"></div>
+        <div id="NewPatientContainer">
+            <div id="NewPatientForm">
+                <h1>
+                    Nuevo paciente
+                </h1>
+                <form id="addNewPatientForm">
+                    {% csrf_token %}
+                    <input type="text" name="namePatient" id="nameNewPatient" class="inputField" placeholder="Nombre" maxlength="50">
+                    <input type="text" name="dpiPatient" id="dpiNewPatient" class="inputField" placeholder="DPI" maxlength="13">
+                    <br>
+                    <table align="center">
+                        <tr>
+                            <td>
+                                <label for="noPhone">-</label>
+                                <input type="text" name="noPhone" id="phoneNewPatient" class="inputField" placeholder="Número de telefono" maxlength="8">
+                            </td>
+                            <td>
+                                <label for="birthdayPatient">Fecha de nacimiento:</label>
+                                <input type="date" name="birdthdate" id="birdthdateNewPatient" class="inputField">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="date">Fecha de la consulta:</label>
+                                <input type="date" name="datePatient" id="dateNewPatient" class="inputField">
+                            </td>
+                            <td>
+                                <label for="time">Hora de la consulta:</label>
+                                <input type="time" name="timePatient" id="timeNewPatient" class="inputField">
+                            </td>
+                        </tr>
+                    </table>
+                    <div id="doctorSelect2"></div>
+                    <br>
+                    <textarea name="reasonPatient" id="reasonNewPatient" class="areaField" placeholder="Razón de la visita" maxlength="1000"></textarea>
+                    <textarea name="otherPatient" id="otherNewPatient" class="areaField" placeholder="Otros" maxlength="1000"></textarea>                    
+                </form>
+                <table>
+                    <tr>
+                        <button class="menuButton" id="cancelNewPatientButton">Cancelar</button>
+                    </tr>
+                    <tr>
+                        <button class="menuButton" id="addNewPatientButton">Agregar</button>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="DoctorRoot" id="DoctorRoot">
+        <div class="overlay"></div>
+        <div id="DoctorContainer">
+            <div id="DoctorForm">
+                <h1>
+                    Agregar medico
+                </h1>
+                <form id="addDoctorForm">
+                    {% csrf_token %}
+                    <input type="text" name="nameDoctor" id="nameDoctor" class="inputField" placeholder="Nombre" maxlength="50">
+                    <br>
+                    <input type="text" name="membership" id="membership" class="inputField" placeholder="No. Colegiado" maxlength="9">
+                    <br>
+                    <input type="text" name="specialty" id="specialty" class="inputField" placeholder="Especialidad" maxlength="50">
+                    <br>
+                    <textarea name="otherDoctor" id="otherDoctor" class="areaField" placeholder="Otros" maxlength="1000"></textarea>
+                </form>
+                <table>
+                    <tr>
+                        <button class="menuButton" id="cancelDoctorButton">Cancelar</button>
+                    </tr>
+                    <tr>
+                        <button class="menuButton" id="addDoctorButton">Agregar</button>
                     </tr>
                 </table>
             </div>

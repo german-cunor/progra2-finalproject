@@ -1,0 +1,15 @@
+<table width="100%" cellspacing="10px">
+    <tr>
+        <td class="cellTitle">Nombre</td>
+        <td class="cellTitle">Contacto</td>
+        <td class="cellTitle">Mensaje</td>
+    </tr>
+    {% for message in messages %}
+        <tr>
+            <td class="cellData">{{message.name}}</td>
+            <td class="cellData">{{message.contact}}</td>
+            <td class="cellData">{{message.message}}</td>
+            <td><button id="{{message.id}}" class="deleteButton">Eliminar</button></td>
+        </tr>
+    {% endfor %}
+</table>

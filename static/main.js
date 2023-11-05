@@ -31,6 +31,16 @@ document.getElementById("cancelMessageButton").addEventListener("click", functio
     document.querySelector(".MessageRoot").classList.add("close");
 });
 
+document.getElementById("sendMessageButton").addEventListener("click", function () {
+    if (document.getElementById("message").value !== "") {
+        document.getElementById("sendForm").submit();
+        document.querySelector('.MessageRoot').classList.remove('show');
+        document.querySelector(".MessageRoot").classList.add("close");
+    } else {
+        alert("Ingrese un mensaje");
+    }
+});
+
 document.getElementById("floatingButton").addEventListener("click", function () {
     document.getElementById("MessageRoot").style.display = "block";
     document.getElementById("MessageForm").scrollTop = 0;
@@ -54,19 +64,25 @@ document.getElementById("requestButton").addEventListener("click", function() {
         if (dpi && document.getElementById("dpiPatient").value.length === 13) {
             const nt = /^\d+$/.test(document.getElementById("dpiPatient").value);
             if (nt && document.getElementById("noPhone").value.length === 8) {
-                if (document.getElementById("reasonPatient").value !== "") {
-                    document.getElementById("requestForm").submit();
+                var parsedDate = Date.parse(document.getElementById("birdthdatePatient").value);
+                if (parsedDate && !isNaN(parsedDate)) {
+                    if (document.getElementById("reasonPatient").value !== "") {
+                        document.getElementById("requestForm").submit();
+                    } else {
+                        document.getElementById("requestMessage").textContent = "Ingrese la razón de su visita";
+                        document.getElementById("requestMessage").style.color = "red";
+                    }
                 } else {
-                    document.getElementById("requestMessage").textContent = "Ingrese la razón de su visita";
-                    document.getElementById("requestMessage").style.color = "red";    
+                    document.getElementById("requestMessage").textContent = "El formato de la fecha de nacimiento no es valido";
+                    document.getElementById("requestMessage").style.color = "red";
                 }
             } else {
                 document.getElementById("requestMessage").textContent = "El formato del número telefonico no es valido";
-                document.getElementById("requestMessage").style.color = "red";    
+                document.getElementById("requestMessage").style.color = "red";
             }
         } else {
             document.getElementById("requestMessage").textContent = "El formato del DPI no es valido";
-            document.getElementById("requestMessage").style.color = "red";    
+            document.getElementById("requestMessage").style.color = "red";
         }
     } else {
         document.getElementById("requestMessage").textContent = "Ingrese su nombre";

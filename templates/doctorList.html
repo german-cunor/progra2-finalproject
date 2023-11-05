@@ -1,6 +1,6 @@
-<select name="doctorName" class="inputField">
-    <option value="default" selected>Selecione un medico</option>
+<select name="doctorName" id="doctorName" class="inputField">
+    <option value="default" selected="TRUE">Selecione un medico</option>
     {% for doctor in doctors %}
-        <option value="{{doctor.membership}}" selected>{{doctor.name}}</option>
+        <option value="{{doctor.membership}}" selected>Dr. {{doctor.name}}</option>
     {% endfor %}
 </select>

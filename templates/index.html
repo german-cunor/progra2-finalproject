@@ -70,6 +70,8 @@
                     <br>
                     <input type="text" name="noPhone" id="noPhone" class="inputField" placeholder="Número de telefono" maxlength="8">
                     <br>
+                    <input type="date" name="birdthdate" id="birdthdatePatient" class="inputField">
+                    <br>
                     <textarea name="reasonPatient" id="reasonPatient" class="areaField" placeholder="Razón de la visita" maxlength="1000"></textarea>
                 </form>
                 <table>
@@ -97,12 +99,13 @@
                 Adjunte algún medio de contacto, nos comunicaremos con usted lo mas pronto posible :D
                 <br/>
                 <br/>
-                <form>
-                    <input type="text" class="inputField" placeholder="Nombre">
+                <form id="sendForm" action="{% url 'send_message' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="nameMessage" class="inputField" placeholder="Nombre">
                     <br>
-                    <input type="text" class="inputField" placeholder="Telefono / Correo">
+                    <input type="text" name="contactMessage" class="inputField" placeholder="Telefono / Correo">
                     <br>
-                    <textarea class="areaField" placeholder="Mensaje"></textarea>
+                    <textarea class="areaField" id="message" name="message" placeholder="Mensaje"></textarea>
                     <br>
                 </form>
                 <table>
@@ -110,7 +113,7 @@
                         <button class="menuButton" id="cancelMessageButton">Cancelar</button>
                     </tr>
                     <tr>
-                        <button class="menuButton">Enviar</button>
+                        <button class="menuButton" id="sendMessageButton">Enviar</button>
                     </tr>
                 </table>
             </div>

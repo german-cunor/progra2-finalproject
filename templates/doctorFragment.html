@@ -8,27 +8,27 @@
     
     {% for doctor in doctors %}
         <tr>
-            <td class="cellData">
-                {{doctor.name}}
-            </td>
-
-            <td class="cellData">
-                {{doctor.membership}}
-            </td>
-
-            <td class="cellData">
-                {{doctor.specialty}}
-            </td>
-
-            <td class="cellData">
-                {{doctor.others}}
+            <td>
+                <input class="cellInput" id="n_{{doctor.id}}" type="text" value="{{doctor.name}}">
             </td>
 
             <td>
-                <button class="acceptButton">Editar</button>
+                <input class="cellInput" id="m_{{doctor.id}}"  type="text" value="{{doctor.membership}}" readonly>
+            </td>
+
+            <td>
+                <input class="cellInput" id="s_{{doctor.id}}" type="text" value="{{doctor.specialty}}">
+            </td>
+
+            <td>
+                <input class="cellInput" id="o_{{doctor.id}}" type="text" value="{{doctor.others}}">
+            </td>
+
+            <td>
+                <button class="acceptButton" id="{{doctor.id}}">Guardar</button>
             </td>
             <td>
-                <button class="deleteButton">Eliminar</button>
+                <button class="deleteButton" id="{{doctor.membership}}">Eliminar</button>
             </td>
         </tr>
     {% endfor %}

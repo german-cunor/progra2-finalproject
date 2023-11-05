@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "altothe";
+	src: url("fonts/aldothe_apache.ttf");
+}
+
 .container {
     position: fixed;
     width: 100%;
@@ -8,55 +13,241 @@
     left: 0;
 }
 
+.acceptButton, .deleteButton, .appointmentButton, .viewButton {
+	color: #eeeeee;
+	text-align: center;
+	background-color: #fc5ac6;
+	font-size: 20px;
+	border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgb(75, 75, 75);
+	padding: 4px;
+    width: 120px;
+    white-space: nowrap;
+}
+
+.acceptButton:hover, .deleteButton:hover, .appointmentButton:hover, .viewButton:hover {
+	background-color: #ed3cb2;
+}
+
 .tableContent {
     width: 100%;
     height: 100%;
 }
 
-.leftCell {
-    width: 30%;
-    height: 100%;
-    padding: 20px;
-    padding-right: 10px;
-}
-
-.rightCell {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    padding-left: 10px;
-}
-
 .leftSide {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: 25%;
+    height: 90%;
+    transform: translate(5%,5%);
     background-color: #00000070;
     border-radius: 20px;
     overflow: hidden;
 }
 
 .rightSide {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 70%;
+    height: 90%;
+    transform: translate(-2.5%, 5%);
     border-radius: 20px;
     background-color: #00000070;
     overflow: hidden;
+    right: 0;
 }
 
 .menuOption {
-    margin-block: 4px;
     width: 100%;
     height: 40px;
-    font-size: 30px;
+    font-size: 100%;
     color: white;
     background-color: #00000060;
     transition: background-color 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    vertical-align: middle;
+    user-select: none;
 }
 
 .selected {
-    background-color: #ea649794;
+    background-color: #ed3cb294;
 }
 
 .unselected {
     background-color: #00000060;
+}
+
+.adminTitle {
+    text-align: center;
+    color: white;
+    background-color: #304050;
+    height: 45px;
+    transform: translateY(-24px);
+}
+
+.paragraph {
+    color: white;
+    font-size: 150%;
+}
+
+.menuButton {
+	color: #eeeeee;
+	text-align: center;
+	background-color: #fc5ac6;
+	font-size: 20px;
+	border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgb(75, 75, 75);
+	margin: 20px;
+	padding: 4px;
+    width: 200px;
+    transition: width 0.2s ease;
+}
+
+.menuButton:hover {
+	background-color: #ed3cb2;
+	font-size: 21px;
+    margin-top: 19px;
+    margin-bottom: 19px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 220px;
+    transition: width 0.2s ease;
+}
+
+.inputField {
+    font-size: 20px;
+    outline: none;
+    border-radius: 20px;
+    height: 40px;
+    border: 2px solid #fc5ac6;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 4px;
+}
+
+.areaField {
+    font-size: 20px;
+    outline: none;
+    border-radius: 20px;
+    height: 200px;
+    border: 2px solid #fc5ac6;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 4px;
+    resize: none;
+}
+
+.cellData {
+    color: white;
+    background-color: #00000060;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ffffffa0;
+    width: 25%;
+    outline: none;
+}
+
+.cellInput {
+    color: white;
+    background-color: #00000060;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ffffffa0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+.cellTitle {
+    color: white;
+    background-color: #000000a0;
+    font-size: 16px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid #ffffffa0;
+    width: 25%;
+    outline: none;
+}
+
+.PatientRoot, .NewPatientRoot, .DoctorRoot {
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+#PatientContainer, #NewPatientContainer, #DoctorContainer {
+    overflow: hidden;
+    width: 80%;
+    height: 90%;
+
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 40px;
+    background-color: rgb(255, 255, 255);
+}
+
+#PatientForm, #NewPatientForm, #DoctorForm {
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    transform: translate(-5%, 0%);
+    overflow: scroll;
+}
+
+.MessageRoot {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.show {
+    opacity: 1;
+}
+
+.close {
+    opacity: 0;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+}
+
+.addData {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ed3cb2;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 10px;
+    user-select: none;
+    border: 1px solid white;
+}
+
+.addData:hover {
+    opacity: 1;
+}
+
+label {
+    color: gray;
+    display: block;
+    font-size: 80%;
 }
